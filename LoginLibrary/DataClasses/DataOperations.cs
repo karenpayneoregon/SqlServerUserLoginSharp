@@ -2,7 +2,6 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using LoginLibrary.SecurityClasses;
 using LoginLibrary.SecurityClasses.SecurityClasses;
 using SupportLibrary;
 
@@ -14,7 +13,7 @@ namespace LoginLibrary.DataClasses
 		public class DataOperations : BaseExceptionProperties
 		{
 			private string ConnectionString;
-			//
+			
 			public DataOperations(byte[] pNameBytes, byte[] pPasswordBytes, string pServerName, string pCatalogName)
 			{
 
@@ -43,9 +42,14 @@ namespace LoginLibrary.DataClasses
 				mHasException = false;
 
 				var productDataTable = new DataTable();
-
-				var selectStatement = System.Xml.Linq.XElement.Parse("<SQL> SELECT P.ProductID , P.ProductName , P.SupplierID , P.CategoryID , P.QuantityPerUnit , P.UnitPrice , P.UnitsInStock , S.CompanyName AS Supplier FROM dbo.Products AS P INNER JOIN dbo.Categories AS C ON P.CategoryID = C.CategoryID INNER JOIN dbo.Suppliers AS S ON P.SupplierID = S.SupplierID WHERE ( P.CategoryID = @CategoryID );</SQL>").Value;
-
+			    var selectStatement = 
+			        "SELECT " + 
+			        "P.ProductID , P.ProductName , P.SupplierID , P.CategoryID , " +
+			        "P.QuantityPerUnit , P.UnitPrice , P.UnitsInStock , " +
+			        "S.CompanyName AS Supplier FROM dbo.Products AS P " +
+			        "INNER JOIN dbo.Categories AS C ON P.CategoryID = C.CategoryID " + 
+			        "INNER JOIN dbo.Suppliers AS S ON P.SupplierID = S.SupplierID " + 
+			        "WHERE(P.CategoryID = @CategoryID); ";
 
 				using (var cn = new SqlConnection {ConnectionString = ConnectionString})
 				{
@@ -84,4 +88,5 @@ namespace LoginLibrary.DataClasses
 			}
 		}
 	}
+
 }

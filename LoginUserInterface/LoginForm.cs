@@ -40,27 +40,26 @@ namespace LoginUserInterface
 			{
 
 				var ops = new DatabaseUser("KARENS-PC", "UserLoginExample");
-				var tester = new Encryption();
+                var encryption = new Encryption();
+                // encrypt user name and password
+                var userNameBytes = encryption.Encrypt(UserNameTextBox.Text, "111");
+                var passwordBytes = encryption.Encrypt(PasswordTextBox.Text, "111");
 
-				// encrypt user name and password
-				var userNameBytes = tester.Encrypt(UserNameTextBox.Text, "111");
-				var passwordBytes = tester.Encrypt(PasswordTextBox.Text, "111");
+                var results = ops.Login(userNameBytes, passwordBytes);
 
-				var results = ops.Login(userNameBytes, passwordBytes);
-
-				//
-				// Login recognized (does not know if the user has proper permissions to the tables at this point)
-				//
-				if (results.Success)
-				{
-					Hide();
-					var mainForm = new MainForm(userNameBytes, passwordBytes);
-					mainForm.ShowDialog();
-				}
-				else
-				{
-					MessageBox.Show(results.Message);
-				}
+                //
+                // Login recognized (does not know if the user has proper permissions to the tables at this point)
+                //
+                if (results.Success)
+                {
+	                Hide();
+	                var mainForm = new MainForm(userNameBytes, passwordBytes);
+	                mainForm.ShowDialog();
+                }
+                else
+                {
+	                MessageBox.Show(results.Message);
+                }
 			}
 			else
 			{

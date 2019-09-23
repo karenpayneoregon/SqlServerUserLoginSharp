@@ -7,34 +7,34 @@ namespace LoginUserInterface
 	public partial class MainForm
 	{
 
-		private byte[] userNameBytes;
-		private byte[] userPasswordBytes;
+		private readonly byte[] _userNameBytes;
+		private readonly byte[] _userPasswordBytes;
 
-		private BindingSource ProductBindingSource = new BindingSource();
+		private readonly BindingSource _productBindingSource = new BindingSource();
 
 		public MainForm(byte[] pNameBytes, byte[] pPasswordBytes)
 		{
 
 			InitializeComponent();
 
-			userNameBytes = pNameBytes;
-			userPasswordBytes = pPasswordBytes;
+			_userNameBytes = pNameBytes;
+			_userPasswordBytes = pPasswordBytes;
 
 		}
 		private void MainForm_Load(object sender, EventArgs e)
 		{
 
 			var ops = new DataOperations(
-			    userNameBytes, 
-			    userPasswordBytes, 
+			    _userNameBytes, 
+			    _userPasswordBytes, 
 			    "KARENS-PC", 
 			    "UserLoginExample");
 
 			var productTable = ops.ReadProductsByCategory(1);
 			if (ops.IsSuccessFul)
 			{
-				ProductBindingSource.DataSource = productTable;
-				ProductsDataGridView.DataSource = ProductBindingSource;
+				_productBindingSource.DataSource = productTable;
+				ProductsDataGridView.DataSource = _productBindingSource;
 			}
 			else
 			{

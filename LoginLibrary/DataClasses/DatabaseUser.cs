@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
-using LoginLibrary.SecurityClasses;
 using LoginLibrary.SecurityClasses.SecurityClasses;
-using LoginLibrary.SupportClasses;
+using LoginLibrary.SupportClasses.SupportClasses;
 
 namespace LoginLibrary.DataClasses
 {
