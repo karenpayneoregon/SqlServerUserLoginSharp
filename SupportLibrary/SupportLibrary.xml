@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SupportLibrary</name>
+    </assembly>
+    <members>
+        <member name="P:SupportLibrary.BaseExceptionProperties.HasException">
+            <summary>
+            Indicate the last operation thrown an exception or not
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SupportLibrary.BaseExceptionProperties.LastException">
+            <summary>
+            Provides access to the last exception thrown
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SupportLibrary.BaseExceptionProperties.LastExceptionMessage">
+            <summary>
+            If you don't need the entire exception as in LastException this 
+            provides just the text of the exception
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SupportLibrary.BaseExceptionProperties.IsSuccessFul">
+            <summary>
+            Indicate for return of a function if there was an exception thrown or not.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:SupportLibrary.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:SupportLibrary.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:SupportLibrary.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>

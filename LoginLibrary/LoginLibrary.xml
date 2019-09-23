@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LoginLibrary</name>
+    </assembly>
+    <members>
+        <member name="M:LoginLibrary.DataClasses.DataClasses.DataOperations.ReadProductsByCategory(System.Int32)">
+            <summary>
+            Connect to database via validated user name and password passed in the
+            new constructor.
+            
+            There are still failure points which include permissions to the tables
+            for the user.
+            </summary>
+            <param name="pCategoryIdentifier"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LoginLibrary.DataClasses.DataClasses.DatabaseUser">
+            <summary>
+            Responsible to validating a user has permissions 
+            to access the database, not tables.
+            </summary>
+        </member>
+        <member name="T:LoginLibrary.SecurityClasses.SecurityClasses.Encryption">
+            <summary>
+            Simple encryption decryption of strings
+            </summary>
+        </member>
+        <member name="T:LoginLibrary.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:LoginLibrary.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:LoginLibrary.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>
