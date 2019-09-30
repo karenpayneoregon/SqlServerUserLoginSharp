@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Security;
 using LoginLibrary.SecurityClasses.SecurityClasses;
 using LoginLibrary.SupportClasses.SupportClasses;
 
@@ -20,7 +21,36 @@ namespace LoginLibrary.DataClasses
 				serverName = pServerName;
 				catalogName = pCatalogName;
 			}
-			public SqlServerLoginResult Login(byte[] pNameBytes, byte[] pPasswordBytes)
+            /// <summary>
+            /// Alternate method to login
+            /// SqlCredential Class
+            /// https://docs.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlcredential?view=netframework-4.8
+            /// </summary>
+            public void SqlCredentialExample()
+            {
+                var ConnectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=UserLoginExample";
+                var userName = "KarenPayne";
+                var password = "password1";
+
+                var securePassword = new SecureString();
+
+                foreach (var character in password)
+                {
+                    securePassword.AppendChar(character);
+                }
+
+                securePassword.MakeReadOnly();
+
+                var credentials = new SqlCredential(userName, securePassword);
+
+                using (var cn = new SqlConnection {ConnectionString = ConnectionString})
+                {
+                    cn.Credential = credentials;
+                    cn.Open();
+                }
+            }
+
+            public SqlServerLoginResult Login(byte[] pNameBytes, byte[] pPasswordBytes)
 			{
 				var loginResult = new SqlServerLoginResult();
 
@@ -37,6 +67,8 @@ namespace LoginLibrary.DataClasses
 
 				using (var cn = new SqlConnection {ConnectionString = ConnectionString})
 				{
+                    // password1At@Apples
+                    Console.WriteLine(ConnectionString);
 					try
 					{
 						cn.Open();

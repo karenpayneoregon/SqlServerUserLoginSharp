@@ -27,7 +27,7 @@ namespace LoginUserInterface
 			var ops = new DataOperations(
 			    _userNameBytes, 
 			    _userPasswordBytes, 
-			    "KARENS-PC", 
+			    ".\\SQLEXPRESS", 
 			    "UserLoginExample");
 
 			var productTable = ops.ReadProductsByCategory(1);
