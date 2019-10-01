@@ -25,6 +25,8 @@ namespace LoginLibrary.DataClasses
             /// Alternate method to login
             /// SqlCredential Class
             /// https://docs.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlcredential?view=netframework-4.8
+            ///
+            /// See full working method below.
             /// </summary>
             public void SqlCredentialExample()
             {
@@ -49,7 +51,67 @@ namespace LoginLibrary.DataClasses
                     cn.Open();
                 }
             }
+            /// <summary>
+            /// Alternate method to login
+            /// SqlCredential Class
+            /// https://docs.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlcredential?view=netframework-4.8
+            /// </summary>
+            public SqlServerLoginResult SqlCredentialLogin(byte[] pNameBytes, byte[] pPasswordBytes)
+            {
+                var loginResult = new SqlServerLoginResult();
+                var secureOperations = new Encryption();
 
+                var userName = secureOperations.Decrypt(pNameBytes, "111");
+                var userPassword = secureOperations.Decrypt(pPasswordBytes, "111");
+
+                string connectionString = $"Data Source={serverName};" + 
+                                          $"Initial Catalog={catalogName};";
+
+
+                var securePassword = new SecureString();
+
+                foreach (var character in userPassword)
+                {
+                    securePassword.AppendChar(character);
+                }
+
+                securePassword.MakeReadOnly();
+
+                var credentials = new SqlCredential(userName, securePassword);
+
+                using (var cn = new SqlConnection {ConnectionString = connectionString})
+                {
+                    try
+                    {
+                        cn.Credential = credentials;
+                        cn.Open();
+                        loginResult.Success = true;
+                    }
+
+                    catch (SqlException failedLoginException) when (failedLoginException.Number == 18456)
+                    {
+                        loginResult.Success = false;
+                        loginResult.GenericException = false;
+                        loginResult.Message = "Can not access data.";
+                    }
+                    catch (SqlException genericSqlException)
+                    {
+                        loginResult.Success = false;
+                        loginResult.GenericException = false;
+                        loginResult.Message = "Can not access data.";
+                    }
+                    catch (Exception ex)
+                    {
+                        loginResult.Success = false;
+                        loginResult.GenericException = true;
+                        loginResult.Message = ex.Message;
+                    }
+
+                }
+
+                return loginResult;
+
+            }
             public SqlServerLoginResult Login(byte[] pNameBytes, byte[] pPasswordBytes)
             {
                 var loginResult = new SqlServerLoginResult();

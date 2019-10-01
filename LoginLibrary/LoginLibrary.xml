@@ -21,6 +21,20 @@
             to access the database, not tables.
             </summary>
         </member>
+        <member name="M:LoginLibrary.DataClasses.DataClasses.DatabaseUser.SqlCredentialExample">
+            <summary>
+            Alternate method to login
+            SqlCredential Class
+            https://docs.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlcredential?view=netframework-4.8
+            </summary>
+        </member>
+        <member name="M:LoginLibrary.DataClasses.DataClasses.DatabaseUser.SqlCredentialLogin(System.Byte[],System.Byte[])">
+            <summary>
+            Alternate method to login
+            SqlCredential Class
+            https://docs.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlcredential?view=netframework-4.8
+            </summary>
+        </member>
         <member name="T:LoginLibrary.SecurityClasses.SecurityClasses.Encryption">
             <summary>
             Simple encryption decryption of strings
