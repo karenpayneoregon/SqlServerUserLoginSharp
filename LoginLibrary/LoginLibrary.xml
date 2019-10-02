@@ -22,11 +22,13 @@
             </summary>
         </member>
         <member name="M:LoginLibrary.DataClasses.DataClasses.DatabaseUser.SqlCredentialExample">
-            <summary>
-            Alternate method to login
-            SqlCredential Class
-            https://docs.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlcredential?view=netframework-4.8
-            </summary>
+             <summary>
+             Alternate method to login
+             SqlCredential Class
+             https://docs.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlcredential?view=netframework-4.8
+            
+             See full working method below.
+             </summary>
         </member>
         <member name="M:LoginLibrary.DataClasses.DataClasses.DatabaseUser.SqlCredentialLogin(System.Byte[],System.Byte[])">
             <summary>

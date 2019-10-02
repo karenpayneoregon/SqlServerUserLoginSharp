@@ -26,6 +26,7 @@ namespace LoginLibrary.SecurityClasses
 						encryptedPassword = outputStream.ToArray();
 					}
 				}
+
 				return encryptedPassword;
 			}
 
@@ -42,6 +43,7 @@ namespace LoginLibrary.SecurityClasses
 						plainText = Encoding.Unicode.GetString(outputBuffer, 0, readBytes);
 					}
 				}
+
 				return plainText;
 			}
 			private RijndaelManaged getAlgorithm(string secretKey)
@@ -54,6 +56,7 @@ namespace LoginLibrary.SecurityClasses
 			    algorithm.IV = keyBuilder.GetBytes(Convert.ToInt32(algorithm.BlockSize / 8.0));
 				algorithm.Key = keyBuilder.GetBytes(Convert.ToInt32(algorithm.KeySize / 8.0));
 				algorithm.Padding = PaddingMode.PKCS7;
+
 				return algorithm;
 			}
 		}
