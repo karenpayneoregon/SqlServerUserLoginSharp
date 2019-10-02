@@ -36,7 +36,7 @@ namespace SqlCredentialLoginInterface
             this.UserNameTextBox = new System.Windows.Forms.TextBox();
             this.PasswordTextBox = new System.Windows.Forms.TextBox();
             this.LoginButton = new System.Windows.Forms.Button();
-            this.CancelButton = new System.Windows.Forms.Button();
+            this.CancelLoginButton = new System.Windows.Forms.Button();
             this.ShowHidePasswordCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
@@ -85,15 +85,15 @@ namespace SqlCredentialLoginInterface
             this.LoginButton.UseVisualStyleBackColor = true;
             this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
-            // CancelButton
+            // CancelLoginButton
             // 
-            this.CancelButton.Location = new System.Drawing.Point(156, 105);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(75, 23);
-            this.CancelButton.TabIndex = 5;
-            this.CancelButton.Text = "Cancel";
-            this.CancelButton.UseVisualStyleBackColor = true;
-            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
+            this.CancelLoginButton.Location = new System.Drawing.Point(156, 105);
+            this.CancelLoginButton.Name = "CancelLoginButton";
+            this.CancelLoginButton.Size = new System.Drawing.Size(75, 23);
+            this.CancelLoginButton.TabIndex = 5;
+            this.CancelLoginButton.Text = "Cancel";
+            this.CancelLoginButton.UseVisualStyleBackColor = true;
+            this.CancelLoginButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // ShowHidePasswordCheckBox
             // 
@@ -113,7 +113,7 @@ namespace SqlCredentialLoginInterface
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(277, 163);
             this.Controls.Add(this.ShowHidePasswordCheckBox);
-            this.Controls.Add(this.CancelButton);
+            this.Controls.Add(this.CancelLoginButton);
             this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.PasswordTextBox);
             this.Controls.Add(this.UserNameTextBox);
@@ -133,7 +133,7 @@ namespace SqlCredentialLoginInterface
 		internal TextBox UserNameTextBox;
 		internal TextBox PasswordTextBox;
 		internal Button LoginButton;
-		internal Button CancelButton;
+		internal Button CancelLoginButton;
 		internal CheckBox ShowHidePasswordCheckBox;
 	}
 

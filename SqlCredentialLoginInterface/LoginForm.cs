@@ -12,16 +12,9 @@ namespace SqlCredentialLoginInterface
 			InitializeComponent();
 		}
 		private void ShowHidePasswordCheckBox_CheckedChanged(object sender, EventArgs e)
-		{
-			if (ShowHidePasswordCheckBox.Checked)
-			{
-				PasswordTextBox.PasswordChar = '*';
-			}
-			else
-			{
-				PasswordTextBox.PasswordChar = '\0';
-			}
-		}
+        {
+            PasswordTextBox.PasswordChar = ShowHidePasswordCheckBox.Checked ? '*' : '\0';
+        }
 		/// <summary>
 		/// Perform login
 		/// </summary>
@@ -33,7 +26,11 @@ namespace SqlCredentialLoginInterface
 			if (!string.IsNullOrWhiteSpace(UserNameTextBox.Text) && !string.IsNullOrWhiteSpace(PasswordTextBox.Text))
 			{
 
+                /*
+                 * Change server if not using SQLEXPRESS
+                 */
 				var ops = new DatabaseUser(".\\SQLEXPRESS", "UserLoginExample"); 
+
                 var encryption = new Encryption();
                 // encrypt user name and password
                 var userNameBytes = encryption.Encrypt(UserNameTextBox.Text, "111");
@@ -60,23 +57,9 @@ namespace SqlCredentialLoginInterface
 				MessageBox.Show("Incomplete information to continue.");
 			}
 		}
-
 		private void CancelButton_Click(object sender, EventArgs e)
 		{
 			Close();
 		}
-
-		private static LoginForm _DefaultInstance;
-		public static LoginForm DefaultInstance
-		{
-			get
-			{
-				if (_DefaultInstance == null || _DefaultInstance.IsDisposed)
-					_DefaultInstance = new LoginForm();
-
-				return _DefaultInstance;
-			}
-		}
 	}
-
 }
