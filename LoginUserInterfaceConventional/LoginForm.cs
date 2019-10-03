@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using LoginLibrary.DataClasses.DataClasses;
 using LoginLibrary.SecurityClasses.SecurityClasses;
 
-namespace LoginUserInterface
+namespace LoginUserInterfaceConventional
 {
 	public partial class LoginForm
 	{
@@ -39,7 +39,7 @@ namespace LoginUserInterface
 			if (!string.IsNullOrWhiteSpace(UserNameTextBox.Text) && !string.IsNullOrWhiteSpace(PasswordTextBox.Text))
 			{
 
-				var ops = new DatabaseUser(".\\SQLEXPRESS", "UserLoginExample"); 
+				var ops = new DatabaseUser("KARENS-PC", "UserLoginExample"); 
                 var encryption = new Encryption();
                 // encrypt user name and password
                 var userNameBytes = encryption.Encrypt(UserNameTextBox.Text, "111");
@@ -72,17 +72,7 @@ namespace LoginUserInterface
 			Close();
 		}
 
-		private static LoginForm _DefaultInstance;
-		public static LoginForm DefaultInstance
-		{
-			get
-			{
-				if (_DefaultInstance == null || _DefaultInstance.IsDisposed)
-					_DefaultInstance = new LoginForm();
-
-				return _DefaultInstance;
-			}
-		}
+		
 	}
 
 }

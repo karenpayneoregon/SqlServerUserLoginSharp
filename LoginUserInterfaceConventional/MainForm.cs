@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using LoginLibrary.DataClasses.DataClasses;
 
-namespace LoginUserInterface
+namespace LoginUserInterfaceConventional
 {
 	public partial class MainForm
 	{
@@ -27,7 +27,7 @@ namespace LoginUserInterface
 			var ops = new DataOperations(
 			    _userNameBytes, 
 			    _userPasswordBytes, 
-			    ".\\SQLEXPRESS", 
+			    "KARENS-PC", 
 			    "UserLoginExample");
 
 			var productTable = ops.ReadProductsByCategory(1);

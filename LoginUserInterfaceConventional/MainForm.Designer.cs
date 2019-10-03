@@ -1,20 +1,7 @@
-﻿using LoginLibrary.DataClasses;
-
-//INSTANT C# NOTE: Formerly VB project-level imports:
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Data;
-using System.Drawing;
-using System.Diagnostics;
-using System.Windows.Forms;
-using System.Linq;
-using System.Xml.Linq;
-using System.Threading.Tasks;
-
-namespace LoginUserInterface
+﻿using System.Windows.Forms;
+namespace LoginUserInterfaceConventional
 {
-	[Microsoft.VisualBasic.CompilerServices.DesignerGenerated()]
+
 	public partial class MainForm : System.Windows.Forms.Form
 	{
 		//Form overrides dispose to clean up the component list.
