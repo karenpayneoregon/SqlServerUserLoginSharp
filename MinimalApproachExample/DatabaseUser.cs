@@ -46,6 +46,15 @@ namespace MinimalApproachExample
                 }
             }
         }
+        /// <summary>
+        /// Create a table only when the table does not currently exists.
+        /// If the user does not have permissions this will fail. Permissions
+        /// are set under the security table in Object Explorer. Select the database
+        /// then set the permissions.
+        /// </summary>
+        /// <param name="pUserNName"></param>
+        /// <param name="pPassword"></param>
+        /// <returns></returns>
         public string DoWork(string pUserNName, string pPassword)
         {
 
@@ -66,18 +75,40 @@ namespace MinimalApproachExample
 
             using (var cn = new SqlConnection { ConnectionString = connectionString })
             {
-                try
+                using (var cmd = new SqlCommand { Connection = cn })
                 {
-                    cn.Credential = credentials;
-                    cn.Open();
-                    // do work here
-                    return "";
-                }
-                catch (Exception e)
-                {
-                    return e.Message;
+                    try
+                    {
+                        // Table name to create
+                        var tableName = "Person";
+
+                        cmd.CommandText = "SELECT CASE WHEN exists((SELECT * FROM information_schema.tables " + 
+                                          $"WHERE table_name = '{tableName}')) THEN 1 ELSE 0 END;";
+                        cn.Credential = credentials;
+                        cn.Open();
+
+                        // check to see if table currently exists, if not create the table
+                        var exists = (int)cmd.ExecuteScalar() == 1;
+
+                        if (exists == false)
+                        {
+                            cmd.CommandText ="CREATE TABLE Person (PersonIdentifier INT PRIMARY KEY," +
+                                             "FirstName VARCHAR(50) NOT NULL," +
+                                             "LastName VARCHAR(50) NOT NULL);";
+
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        return "";
+                    }
+                    catch (Exception e)
+                    {
+                        return e.Message;
+                    }
                 }
             }
+
+
         }
     }
 }
