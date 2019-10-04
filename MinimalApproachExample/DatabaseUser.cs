@@ -84,6 +84,7 @@ namespace MinimalApproachExample
 
                         cmd.CommandText = "SELECT CASE WHEN exists((SELECT * FROM information_schema.tables " + 
                                           $"WHERE table_name = '{tableName}')) THEN 1 ELSE 0 END;";
+
                         cn.Credential = credentials;
                         cn.Open();
 
@@ -92,6 +93,9 @@ namespace MinimalApproachExample
 
                         if (exists == false)
                         {
+                            /*
+                             * Must have db_owner permissions to database
+                             */
                             cmd.CommandText ="CREATE TABLE Person (PersonIdentifier INT PRIMARY KEY," +
                                              "FirstName VARCHAR(50) NOT NULL," +
                                              "LastName VARCHAR(50) NOT NULL);";

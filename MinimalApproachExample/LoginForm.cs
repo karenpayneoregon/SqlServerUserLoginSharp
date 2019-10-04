@@ -19,7 +19,7 @@ namespace MinimalApproachExample
 			if (!string.IsNullOrWhiteSpace(UserNameTextBox.Text) && !string.IsNullOrWhiteSpace(PasswordTextBox.Text))
 			{
 
-				var ops = new DatabaseUser(".\\SQLEXPRESS", "UserLoginExample"); 
+				var ops = new DatabaseUser(Environment.UserName == "Karens" ? "KARENS-PC" : ".\\SQLEXPRESS", "UserLoginExample"); 
 
                 // perform login
                 var loginResults = ops.SqlCredentialLogin(UserNameTextBox.Text, PasswordTextBox.Text);
