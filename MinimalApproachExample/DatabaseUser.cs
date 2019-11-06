@@ -13,7 +13,7 @@ namespace MinimalApproachExample
             serverName = pServerName;
             catalogName = pCatalogName;
         }
-        public bool SqlCredentialLogin(string pUserNName, string pPassword)
+        public bool SqlCredentialLogin(string pUserName, string pPassword)
         {
 
             string connectionString = $"Data Source={serverName};" +
@@ -29,7 +29,7 @@ namespace MinimalApproachExample
 
             securePassword.MakeReadOnly();
 
-            var credentials = new SqlCredential(pUserNName, securePassword);
+            var credentials = new SqlCredential(pUserName, securePassword);
 
             using (var cn = new SqlConnection { ConnectionString = connectionString })
             {
