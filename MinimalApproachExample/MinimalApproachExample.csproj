@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdministratorOperations.cs" />
     <Compile Include="DatabaseUser.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
