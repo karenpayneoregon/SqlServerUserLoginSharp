@@ -29,6 +29,120 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:SupportLibrary.GenericControlExtensions.Descendants``1(System.Windows.Forms.Control)">
+            <summary>
+            Get a collection of a specific type of control from a control or form.
+            </summary>
+            <typeparam name="T">Type of control</typeparam>
+            <param name="control">Control to traverse</param>
+            <returns>IEnumerable of T</returns>
+        </member>
+        <member name="M:SupportLibrary.GenericControlExtensions.TextBoxList(System.Windows.Forms.Control)">
+            <summary>
+            Get all TextBoxes in a control
+            </summary>
+            <param name="control">Control to iterate</param>
+            <returns></returns>
+        </member>
+        <member name="M:SupportLibrary.GenericControlExtensions.DataGridViewList(System.Windows.Forms.Control)">
+            <summary>
+            Get all DataGridViews controls in a control
+            </summary>
+            <param name="control">Control to iterate</param>
+            <returns></returns>
+        </member>
+        <member name="M:SupportLibrary.GenericControlExtensions.ListViewViewList(System.Windows.Forms.Control)">
+            <summary>
+            Get all ListViews in a control
+            </summary>
+            <param name="control">Control to iterate</param>
+            <returns></returns>
+        </member>
+        <member name="M:SupportLibrary.GenericControlExtensions.CheckBoxList(System.Windows.Forms.Control)">
+            <summary>
+            Get all CheckBoxes in a control
+            </summary>
+            <param name="control">Control to iterate</param>
+            <returns></returns>
+        </member>
+        <member name="M:SupportLibrary.GenericControlExtensions.ComboBoxList(System.Windows.Forms.Control)">
+            <summary>
+            Get all ComboBoxes in a control
+            </summary>
+            <param name="control">Control to iterate</param>
+            <returns></returns>
+        </member>
+        <member name="M:SupportLibrary.GenericControlExtensions.ListBoxList(System.Windows.Forms.Control)">
+            <summary>
+            Get all ListBoxes in a control
+            </summary>
+            <param name="control">Control to iterate</param>
+            <returns></returns>
+        </member>
+        <member name="M:SupportLibrary.GenericControlExtensions.DateTimePickerList(System.Windows.Forms.Control)">
+            <summary>
+            Get all DateTimePickers in a control
+            </summary>
+            <param name="control">Control to iterate</param>
+            <returns></returns>
+        </member>
+        <member name="M:SupportLibrary.GenericControlExtensions.PictureBoxList(System.Windows.Forms.Control)">
+            <summary>
+            Get all PictureBoxes in a control
+            </summary>
+            <param name="control">Control to iterate</param>
+            <returns></returns>
+        </member>
+        <member name="M:SupportLibrary.GenericControlExtensions.PanelList(System.Windows.Forms.Control)">
+            <summary>
+            Get all Panels in a control
+            </summary>
+            <param name="control">Control to iterate</param>
+            <returns></returns>
+        </member>
+        <member name="M:SupportLibrary.GenericControlExtensions.GroupBoxList(System.Windows.Forms.Control)">
+            <summary>
+            Get all GroupBoxes in a control
+            </summary>
+            <param name="control">Control to iterate</param>
+            <returns></returns>
+        </member>
+        <member name="M:SupportLibrary.GenericControlExtensions.ButtonList(System.Windows.Forms.Control)">
+            <summary>
+            Get all Buttons in a control
+            </summary>
+            <param name="control">Control to iterate</param>
+            <returns></returns>
+        </member>
+        <member name="M:SupportLibrary.GenericControlExtensions.NumericUpDownList(System.Windows.Forms.Control)">
+            <summary>
+            Get all NumericUpDown controls in a control
+            </summary>
+            <param name="control">Control to iterate</param>
+            <returns></returns>
+        </member>
+        <member name="M:SupportLibrary.GenericControlExtensions.RadioButtonChecked(System.Windows.Forms.Control,System.Boolean)">
+            <summary>
+            Get checked CheckBox if any from a control/container
+            </summary>
+            <param name="control">Control to iterate</param>
+            <param name="pChecked">true or false</param>
+            <returns></returns>
+        </member>
+        <member name="M:SupportLibrary.GenericControlExtensions.RadioButtonList(System.Windows.Forms.Control)">
+            <summary>
+            Get a list of RadioButtons 
+            </summary>
+            <param name="control">Control to iterate for RadioButtons</param>
+            <returns></returns>
+        </member>
+        <member name="M:SupportLibrary.GenericControlExtensions.ControlNames(System.Collections.Generic.IEnumerable{System.Windows.Forms.Control})">
+            <summary>
+            Get control names for container e.g. a form, a GroupBox etc.
+            </summary>
+            <param name="controls">Control to iterate</param>
+            <returns></returns>
+        </member>
         <member name="T:SupportLibrary.Properties.Resources">
             <summary>
               A strongly-typed resource class, for looking up localized strings, etc.

@@ -4,6 +4,10 @@
 
 Usually opening a Microsoft SQL-Server database involves no security for small personal applications while professional workplace applications utilize Windows authentication for Windows Form application. This article will provide code for developers who want their users to perform a login by providing a user name and associated password each time there is a need to access data within a database. 
 
+#### 12/2020
+
+Modified SqlCredentialLoginInterface to include user and role table
+
 **Option 1**
 ```csharp
 public SqlServerLoginResult SqlCredentialLogin(byte[] pNameBytes, byte[] pPasswordBytes)

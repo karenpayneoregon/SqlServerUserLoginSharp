@@ -3,6 +3,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using LoginLibrary.SecurityClasses.SecurityClasses;
+using LoginLibrary.SupportClasses;
 using SupportLibrary;
 
 namespace LoginLibrary.DataClasses
@@ -13,19 +14,69 @@ namespace LoginLibrary.DataClasses
 		public class DataOperations : BaseExceptionProperties
 		{
 			private string ConnectionString;
-			
-			public DataOperations(byte[] pNameBytes, byte[] pPasswordBytes, string pServerName, string pCatalogName)
-			{
+
+            private readonly User _user = new User();
+            public User User => _user;
+            public bool AdminUserSwitch { get; set; }
+            
+            /// <summary>
+            /// Initialize class along with for one project get user role.
+            /// </summary>
+            /// <param name="pNameBytes">user name encrypted</param>
+            /// <param name="pPasswordBytes">user password encrypted</param>
+            /// <param name="pServerName"></param>
+            /// <param name="pCatalogName"></param>
+            /// <param name="pAdminUserSwitch">For demo purposes, see comments below</param>
+			public DataOperations(byte[] pNameBytes, byte[] pPasswordBytes, string pServerName, string pCatalogName, bool pAdminUserSwitch = false)
+            {
+
+                AdminUserSwitch = pAdminUserSwitch;
 
 				var secureOperations = new Encryption();
+                var userName = secureOperations.Decrypt(pNameBytes, "111");
+                _user.Name = userName;
+
 
 				ConnectionString = 
 				    $"Data Source={pServerName};Initial Catalog={pCatalogName};" + 
-				    $"User Id={secureOperations.Decrypt(pNameBytes, "111")};" + 
+				    $"User Id={userName};" + 
 				    $"Password={secureOperations.Decrypt(pPasswordBytes, "111")};" +
 				    "Integrated Security=False";
 
-				Console.WriteLine();
+                /*
+                 * This is only used for project SqlCredentialLoginInterface
+				 * For a real app, this is not needed. This is because there
+				 * are three projects using this method and only SqlCredentialLoginInterface
+                 * uses this functionality.
+                 */
+                if (AdminUserSwitch)
+                {
+					GetCurrentUser();
+				}
+
+            }
+            /// <summary>
+            /// Get user role, admin or user for use in main form of the project
+            /// SqlCredentialLoginInterface
+            /// </summary>
+            private void GetCurrentUser()
+            {
+                using (var cn = new SqlConnection {ConnectionString = ConnectionString})
+                {
+                    using (var cmd = new SqlCommand {Connection = cn})
+                    {
+                        cmd.CommandText = "SELECT RoleType FROM dbo.Users WHERE UserName = @UserName;";
+                        cmd.Parameters.AddWithValue("@UserName", _user.Name);
+                        
+                        cn.Open();
+                        
+                        var role = (int) cmd.ExecuteScalar();
+                        _user.RoleType = (RoleTypes) role;
+                        
+                    }
+
+				}
+
 			}
 			/// <summary>
 			/// Connect to database via validated user name and password passed in the
