@@ -16,7 +16,7 @@ This article will provide code for developers who want their users to perform a 
 
 #### 12/2020
 
-Modified SqlCredentialLoginInterface to include user and role table
+:heavy_check_mark:  Modified SqlCredentialLoginInterface to include user and role table
 
 **Option 1**
 ```csharp
