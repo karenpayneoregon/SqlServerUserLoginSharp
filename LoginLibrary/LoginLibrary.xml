@@ -4,6 +4,22 @@
         <name>LoginLibrary</name>
     </assembly>
     <members>
+        <member name="M:LoginLibrary.DataClasses.DataClasses.DataOperations.#ctor(System.Byte[],System.Byte[],System.String,System.String,System.Boolean)">
+            <summary>
+            Initialize class along with for one project get user role.
+            </summary>
+            <param name="pNameBytes">user name encrypted</param>
+            <param name="pPasswordBytes">user password encrypted</param>
+            <param name="pServerName"></param>
+            <param name="pCatalogName"></param>
+            <param name="pAdminUserSwitch">For demo purposes, see comments below</param>
+        </member>
+        <member name="M:LoginLibrary.DataClasses.DataClasses.DataOperations.GetCurrentUser">
+            <summary>
+            Get user role, admin or user for use in main form of the project
+            SqlCredentialLoginInterface
+            </summary>
+        </member>
         <member name="M:LoginLibrary.DataClasses.DataClasses.DataOperations.ReadProductsByCategory(System.Int32)">
             <summary>
             Connect to database via validated user name and password passed in the

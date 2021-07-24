@@ -30,50 +30,67 @@ namespace LoginUserInterfaceConventional
 		[System.Diagnostics.DebuggerStepThrough()]
 		private void InitializeComponent()
 		{
-			this.ProductsDataGridView = new System.Windows.Forms.DataGridView();
-			this.Panel1 = new System.Windows.Forms.Panel();
-			((System.ComponentModel.ISupportInitialize)this.ProductsDataGridView).BeginInit();
-			this.SuspendLayout();
-			//
-			//ProductsDataGridView
-			//
-			this.ProductsDataGridView.AllowUserToAddRows = false;
-			this.ProductsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.ProductsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.ProductsDataGridView.Location = new System.Drawing.Point(0, 0);
-			this.ProductsDataGridView.Name = "ProductsDataGridView";
-			this.ProductsDataGridView.Size = new System.Drawing.Size(668, 307);
-			this.ProductsDataGridView.TabIndex = 0;
-			//
-			//Panel1
-			//
-			this.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.Panel1.Location = new System.Drawing.Point(0, 307);
-			this.Panel1.Name = "Panel1";
-			this.Panel1.Size = new System.Drawing.Size(668, 47);
-			this.Panel1.TabIndex = 1;
-			//
-			//MainForm
-			//
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6.0F, 13.0F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(668, 354);
-			this.Controls.Add(this.ProductsDataGridView);
-			this.Controls.Add(this.Panel1);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-			this.Name = "MainForm";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Products";
-			((System.ComponentModel.ISupportInitialize)this.ProductsDataGridView).EndInit();
-			this.ResumeLayout(false);
+            this.ProductsDataGridView = new System.Windows.Forms.DataGridView();
+            this.Panel1 = new System.Windows.Forms.Panel();
+            this.ExitButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.ProductsDataGridView)).BeginInit();
+            this.Panel1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // ProductsDataGridView
+            // 
+            this.ProductsDataGridView.AllowUserToAddRows = false;
+            this.ProductsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ProductsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ProductsDataGridView.Location = new System.Drawing.Point(0, 0);
+            this.ProductsDataGridView.Name = "ProductsDataGridView";
+            this.ProductsDataGridView.Size = new System.Drawing.Size(668, 307);
+            this.ProductsDataGridView.TabIndex = 0;
+            // 
+            // Panel1
+            // 
+            this.Panel1.Controls.Add(this.ExitButton);
+            this.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Panel1.Location = new System.Drawing.Point(0, 307);
+            this.Panel1.Name = "Panel1";
+            this.Panel1.Size = new System.Drawing.Size(668, 47);
+            this.Panel1.TabIndex = 1;
+            // 
+            // ExitButton
+            // 
+            this.ExitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ExitButton.Image = global::LoginUserInterfaceConventional.Properties.Resources.Exit_16x;
+            this.ExitButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ExitButton.Location = new System.Drawing.Point(578, 15);
+            this.ExitButton.Name = "ExitButton";
+            this.ExitButton.Size = new System.Drawing.Size(75, 23);
+            this.ExitButton.TabIndex = 0;
+            this.ExitButton.Text = "Exit";
+            this.ExitButton.UseVisualStyleBackColor = true;
+            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
+            // 
+            // MainForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(668, 354);
+            this.Controls.Add(this.ProductsDataGridView);
+            this.Controls.Add(this.Panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Products";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainFormClosed);
+            this.Load += new System.EventHandler(this.MainForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.ProductsDataGridView)).EndInit();
+            this.Panel1.ResumeLayout(false);
+            this.ResumeLayout(false);
 
-//INSTANT C# NOTE: Converted design-time event handler wireups:
-			base.Load += new System.EventHandler(MainForm_Load);
-			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(MainFormClosed);
 		}
 
 		internal DataGridView ProductsDataGridView;
 		internal Panel Panel1;
-	}
+        private Button ExitButton;
+    }
 
 }

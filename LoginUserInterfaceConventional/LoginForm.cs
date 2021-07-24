@@ -39,7 +39,7 @@ namespace LoginUserInterfaceConventional
 			if (!string.IsNullOrWhiteSpace(UserNameTextBox.Text) && !string.IsNullOrWhiteSpace(PasswordTextBox.Text))
 			{
 
-				var ops = new DatabaseUser("KARENS-PC", "UserLoginExample"); 
+				var ops = new DatabaseUser(".\\SQLEXPRESS", "UserLoginExample"); 
                 var encryption = new Encryption();
                 // encrypt user name and password
                 var userNameBytes = encryption.Encrypt(UserNameTextBox.Text, "111");

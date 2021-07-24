@@ -65,5 +65,10 @@ namespace SqlCredentialLoginInterface
         {
             Application.ExitThread();
         }
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

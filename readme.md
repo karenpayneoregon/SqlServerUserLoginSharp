@@ -2,7 +2,17 @@
 
 ### Introduction
 
-Usually opening a Microsoft SQL-Server database involves no security for small personal applications while professional workplace applications utilize Windows authentication for Windows Form application. This article will provide code for developers who want their users to perform a login by providing a user name and associated password each time there is a need to access data within a database. 
+Usually opening a `Microsoft SQL-Server database` involves no security for small personal applications while professional workplace applications utilize Windows authentication for Windows Form application. 
+
+This article will provide code for developers who want their users to perform a login by providing a user name and associated password each time there is a need to access data within a database. 
+
+![img](assets/login.png)
+
+#### 07/24/2021
+
+:heavy_check_mark: Changed server name for connection string
+
+:heavy_check_mark: Added several images
 
 #### 12/2020
 

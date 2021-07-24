@@ -27,7 +27,7 @@ namespace LoginUserInterfaceConventional
 			var ops = new DataOperations(
 			    _userNameBytes, 
 			    _userPasswordBytes, 
-			    "KARENS-PC", 
+			    ".\\SQLEXPRESS", 
 			    "UserLoginExample");
 
 			var productTable = ops.ReadProductsByCategory(1);
@@ -46,5 +46,10 @@ namespace LoginUserInterfaceConventional
 		{
 			Application.ExitThread();
 		}
-	}
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+			Close();
+        }
+    }
 }

@@ -33,9 +33,7 @@ namespace SqlCredentialLoginInterface
 		{
             this.ProductsDataGridView = new System.Windows.Forms.DataGridView();
             this.Panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.ExitButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ProductsDataGridView)).BeginInit();
             this.Panel1.SuspendLayout();
             this.SuspendLayout();
@@ -52,47 +50,25 @@ namespace SqlCredentialLoginInterface
             // 
             // Panel1
             // 
-            this.Panel1.Controls.Add(this.button3);
-            this.Panel1.Controls.Add(this.button2);
-            this.Panel1.Controls.Add(this.button1);
+            this.Panel1.Controls.Add(this.ExitButton);
             this.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.Panel1.Location = new System.Drawing.Point(0, 307);
             this.Panel1.Name = "Panel1";
             this.Panel1.Size = new System.Drawing.Size(668, 47);
             this.Panel1.TabIndex = 1;
             // 
-            // button1
+            // ExitButton
             // 
-            this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(12, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Tag = "1";
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Enabled = false;
-            this.button2.Location = new System.Drawing.Point(93, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Tag = "0";
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Enabled = false;
-            this.button3.Location = new System.Drawing.Point(174, 12);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Tag = "1";
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.ExitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ExitButton.Image = global::SqlCredentialLoginInterface.Properties.Resources.Exit_16x;
+            this.ExitButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ExitButton.Location = new System.Drawing.Point(581, 12);
+            this.ExitButton.Name = "ExitButton";
+            this.ExitButton.Size = new System.Drawing.Size(75, 23);
+            this.ExitButton.TabIndex = 1;
+            this.ExitButton.Text = "Exit";
+            this.ExitButton.UseVisualStyleBackColor = true;
+            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
             // MainForm
             // 
@@ -115,9 +91,7 @@ namespace SqlCredentialLoginInterface
 
 		internal DataGridView ProductsDataGridView;
 		internal Panel Panel1;
-        private Button button1;
-        private Button button3;
-        private Button button2;
+        private Button ExitButton;
     }
 
 }

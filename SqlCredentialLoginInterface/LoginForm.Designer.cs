@@ -36,8 +36,8 @@ namespace SqlCredentialLoginInterface
             this.UserNameTextBox = new System.Windows.Forms.TextBox();
             this.PasswordTextBox = new System.Windows.Forms.TextBox();
             this.LoginButton = new System.Windows.Forms.Button();
-            this.CancelLoginButton = new System.Windows.Forms.Button();
             this.ShowHidePasswordCheckBox = new System.Windows.Forms.CheckBox();
+            this.CancelLoginButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Label1
@@ -77,6 +77,8 @@ namespace SqlCredentialLoginInterface
             // 
             // LoginButton
             // 
+            this.LoginButton.Image = global::SqlCredentialLoginInterface.Properties.Resources.Login_16x;
+            this.LoginButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.LoginButton.Location = new System.Drawing.Point(35, 105);
             this.LoginButton.Name = "LoginButton";
             this.LoginButton.Size = new System.Drawing.Size(75, 23);
@@ -84,16 +86,6 @@ namespace SqlCredentialLoginInterface
             this.LoginButton.Text = "OK";
             this.LoginButton.UseVisualStyleBackColor = true;
             this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
-            // 
-            // CancelLoginButton
-            // 
-            this.CancelLoginButton.Location = new System.Drawing.Point(156, 105);
-            this.CancelLoginButton.Name = "CancelLoginButton";
-            this.CancelLoginButton.Size = new System.Drawing.Size(75, 23);
-            this.CancelLoginButton.TabIndex = 5;
-            this.CancelLoginButton.Text = "Cancel";
-            this.CancelLoginButton.UseVisualStyleBackColor = true;
-            this.CancelLoginButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // ShowHidePasswordCheckBox
             // 
@@ -106,6 +98,18 @@ namespace SqlCredentialLoginInterface
             this.ShowHidePasswordCheckBox.TabIndex = 6;
             this.ShowHidePasswordCheckBox.UseVisualStyleBackColor = true;
             this.ShowHidePasswordCheckBox.CheckedChanged += new System.EventHandler(this.ShowHidePasswordCheckBox_CheckedChanged);
+            // 
+            // CancelLoginButton
+            // 
+            this.CancelLoginButton.Image = global::SqlCredentialLoginInterface.Properties.Resources.ASX_Cancel_blue_16x;
+            this.CancelLoginButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CancelLoginButton.Location = new System.Drawing.Point(156, 105);
+            this.CancelLoginButton.Name = "CancelLoginButton";
+            this.CancelLoginButton.Size = new System.Drawing.Size(75, 23);
+            this.CancelLoginButton.TabIndex = 5;
+            this.CancelLoginButton.Text = "Cancel";
+            this.CancelLoginButton.UseVisualStyleBackColor = true;
+            this.CancelLoginButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // LoginForm
             // 
