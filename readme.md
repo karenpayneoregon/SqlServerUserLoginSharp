@@ -129,3 +129,50 @@ public SqlServerLoginResult Login(byte[] pNameBytes, byte[] pPasswordBytes)
 C# version [Microsoft TechNet article](https://social.technet.microsoft.com/wiki/contents/articles/53316.sql-server-database-login-for-windows-forms-c.aspx).
 
 VB.NET version [Microsoft TechNet article](https://social.technet.microsoft.com/wiki/contents/articles/53314.sql-server-database-login-for-windows-forms-vb-net.aspx).
+
+
+#### 07/26/2021
+
+If a requirement is to show the login form after closing the main form.
+
+In the project `SqlCredentialLoginInterface`.
+
+In MainForm, comment out
+
+```csharp
+private void MainFormClosed(object sender, FormClosedEventArgs e)
+{
+    Application.ExitThread();
+}
+```
+
+In the login form change
+
+```csharp
+if (results.Success)
+{
+	Hide();
+	var mainForm = new MainForm(userNameBytes, passwordBytes);
+	mainForm.ShowDialog();
+}
+else
+{
+	MessageBox.Show(results.Message);
+}
+```
+
+To
+
+```csharp
+if (results.Success)
+{
+	Hide();
+	var mainForm = new MainForm(userNameBytes, passwordBytes);
+	mainForm.ShowDialog();
+    Close();
+}
+else
+{
+	MessageBox.Show(results.Message);
+}
+```
