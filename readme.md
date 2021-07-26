@@ -137,7 +137,7 @@ If a requirement is to show the login form after closing the main form.
 
 In the project `SqlCredentialLoginInterface`.
 
-In MainForm, comment out
+In MainForm, comment out (Visual Studio will complain, delete appropriate code from the form designer)
 
 ```csharp
 private void MainFormClosed(object sender, FormClosedEventArgs e)
