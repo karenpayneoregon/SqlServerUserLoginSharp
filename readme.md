@@ -8,15 +8,19 @@ This article will provide code for developers who want their users to perform a 
 
 ![img](assets/login.png)
 
-#### 07/24/2021
+### 07/24/2021
 
 :heavy_check_mark: Changed server name for connection string
 
 :heavy_check_mark: Added several images
 
-#### 12/2020
+### 12/2020
 
 :heavy_check_mark:  Modified SqlCredentialLoginInterface to include user and role table
+
+### 1/2023
+
+Added information to main readme where the code points to properly storing passwords in a SQL-Server table using .NET Core 7
 
 **Option 1**
 ```csharp
