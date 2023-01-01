@@ -1,6 +1,6 @@
 # SQL-Server Secure User login
 
-### Introduction
+## Introduction
 
 Usually opening a `Microsoft SQL-Server database` involves no security for small personal applications while professional workplace applications utilize Windows authentication for Windows Form application. 
 
