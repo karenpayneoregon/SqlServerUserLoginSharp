@@ -176,3 +176,15 @@ else
 	MessageBox.Show(results.Message);
 }
 ```
+
+# You also might like
+
+[Storing passwords in SQL-Server database](https://github.com/karenpayneoregon/sql-server-password-secure)
+
+Developers just starting working with Windows Forms, WPF or Console applications tend to use plain text to store passwords in a database which is not wise as anyone that can open the database can see these passwords stored in plain text.
+
+- **Example 1** An easy method to store passwords is [PWDENCRYPT](https://learn.microsoft.com/en-us/sql/t-sql/functions/pwdencrypt-transact-sql?view=sql-server-ver16) which might not be supported in future releases of SQL-Server, the second example uses [HASHBYTES](https://learn.microsoft.com/en-us/sql/t-sql/functions/hashbytes-transact-sql?view=sql-server-ver16) which offers more options.
+- **Example 2** This method provides more options using HASHBYTES. In the following example only the password is protected, if you like, the next step would be to concatenate the user name and password together.
+- **Example 3** Where example 2 used two statements, this version uses one statement. This is the best of the three to use.
+- **Add new user** Shows how to add a new user to use with Example 2 and Example 3.
+
